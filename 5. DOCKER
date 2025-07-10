@@ -131,6 +131,9 @@ OS-LEVEL OF VIRTAULIZATION:
 
 docker pull ubuntu
 docker run -it --name cont1 ubuntu
+docker start cont1
+docker exec -it cont1 bash
+
 
 1  apt update -y
 2  apt install apache2 -y
