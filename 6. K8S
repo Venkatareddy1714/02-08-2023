@@ -368,11 +368,11 @@ mv kubectl /usr/local/bin/kubectl
 mv kops-linux-amd64 /usr/local/bin/kops
 
 aws s3api create-bucket --bucket rahamssshaik09.k8s.local --region us-east-1
-aws s3api put-bucket-versioning --bucket rahamssshaik09.k8s.local --region us-east-1 --versioning-configuration Status=Enabled
-export KOPS_STATE_STORE=s3://rahamssshaik09.k8s.local
+aws s3api put-bucket-versioning --bucket venkat09877609.k8s.local --region us-east-1 --versioning-configuration Status=Enabled
+export KOPS_STATE_STORE=s3://venkat09877609.k8s.local
 
-kops create cluster --name rahams.k8s.local --zones us-east-1a --master-count=1 --master-size t2.medium --node-count=2 --node-size t2.micro
-kops update cluster --name rahams.k8s.local --yes --admin
+kops create cluster --name venkat.k8s.local --zones us-east-1a --master-count=1 --master-size t2.medium --node-count=2 --node-size t2.micro
+kops update cluster --name venkat.k8s.local --yes --admin
 
 kubectl get no
 kops get cluster
@@ -381,21 +381,21 @@ kops get cluster
 Suggestions:
  * list clusters with: kops get cluster
  * edit this cluster with: kops edit cluster rahams.k8s.local
- * edit your node instance group: kops edit ig --name=rahams.k8s.local nodes-us-east-1a
- * edit your master instance group: kops edit ig --name=rahams.k8s.local master-us-east-1a
+ * edit your node instance group: kops edit ig --name=venkat.k8s.local nodes-us-east-1a
+ * edit your master instance group: kops edit ig --name=venkat.k8s.local master-us-east-1a
 
-Finally configure your cluster with: kops update cluster --name rahams.k8s.local --yes --admin
+Finally configure your cluster with: kops update cluster --name venkat.k8s.local --yes --admin
 
 
 CLUSTER ADMIN ACTIVITIES:
 
 SCALING THE NODES:
-kops edit ig --name=rahams.k8s.local nodes-us-east-1a
-kops edit ig --name=rahams.k8s.local nodes-us-east-1a (MIN AND MX REPLACE WITH 4)
-kops update cluster --name rahams.k8s.local --yes --admin
+kops edit ig --name=venkat.k8s.local nodes-us-east-1a
+kops edit ig --name=venkat.k8s.local nodes-us-east-1a (MIN AND MX REPLACE WITH 4)
+kops update cluster --name venkat.k8s.local --yes --admin
 kops rolling-update cluster
 
-To delete cluster: kops delete cluster --name rahams.k8s.local --yes
+To delete cluster: kops delete cluster --name venkat.k8s.local --yes
 Note: bucket will not delete 
 
 ===============================================
@@ -416,14 +416,14 @@ mv kubectl /usr/local/bin/kubectl
 mv kops-linux-amd64 /usr/local/bin/kops
 
 aws s3api create-bucket --bucket rahamssshaik09.k8s.local --region us-east-1
-aws s3api put-bucket-versioning --bucket rahamssshaik09.k8s.local --region us-east-1 --versioning-configuration Status=Enabled
-export KOPS_STATE_STORE=s3://rahamssshaik09.k8s.local
-kops create cluster --name rahams.k8s.local --zones us-east-1a --master-count=1 --master-size t2.medium --node-count=2 --node-size t2.micro
-kops update cluster --name rahams.k8s.local --yes --admin
+aws s3api put-bucket-versioning --bucket venkat09877609.k8s.local --region us-east-1 --versioning-configuration Status=Enabled
+export KOPS_STATE_STORE=s3://venkat09877609.k8s.local
+kops create cluster --name venkat.k8s.local --zones us-east-1a --master-count=1 --master-size t2.medium --node-count=2 --node-size t2.micro
+kops update cluster --name venkat.k8s.local --yes --admin
 
 
 RUN COMMAND AFTER SCRIPT
-export KOPS_STATE_STORE=s3://rahamssshaik09.k8s.local
+export KOPS_STATE_STORE=s3://venkat09877609.k8s.local
 kops validate cluster --wait 10m
 
 ==================================================================
