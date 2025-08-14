@@ -183,7 +183,7 @@ variable "instance_type" {
 variable "instance_count" {
 }
 
-cat raham.tfvars
+cat venkat.tfvars
 instance_type = "t2.medium"
 
 instance_count = 3
@@ -259,7 +259,7 @@ Name = "terra-server"
 }
 }
 
-output "raham" {
+output "" {
 value = [aws_instance.one.public_ip, aws_instance.one.private_ip, aws_instance.one.public_dns]
 }
 
@@ -295,14 +295,14 @@ HISTORY:
    43  terrafor destroy --auto-approve
    44  terraform destroy --auto-approve
    45  vim variables.tf
-   46  vim raham.tfvars
+   46  vim venkat.tfvars
    47  cat main.tf
    48  cat variables.tf
-   49  cat raham.tfvars
+   49  cat venkat.tfvars
    50  terraform apply --auto-approve
-   51  terraform apply --auto-approve -var-file="raham.tfvars"
-   52  terraform destroy --auto-approve -var-file="raham.tfvars"
-   53  mv raham.tfvars dev.tfvars
+   51  terraform apply --auto-approve -var-file="venkat.tfvars"
+   52  terraform destroy --auto-approve -var-file="venkat.tfvars"
+   53  mv venkat.tfvars dev.tfvars
    54  cp dev.tfvars test.tfvars
    55  vim test.tfvars
    56  cat test.tfvars
@@ -340,7 +340,7 @@ locals {
 env = "test"
 }
 
-resource "aws_instance" "raham" {
+resource "aws_instance" "venkat" {
 ami = "ami-03d294e37a4820c21"
 instance_type = "t2.micro"
 tags = {
@@ -380,7 +380,7 @@ locals {
 env = "${terraform.workspace}"
 }
 
-resource "aws_instance" "raham" {
+resource "aws_instance" "venkat" {
 ami = "ami-03d294e37a4820c21"
 instance_type = "t2.micro"
 tags = {
@@ -417,7 +417,7 @@ Name = "${local.env}-subnet"
 }
 }
 
-resource "aws_instance" "raham" {
+resource "aws_instance" "venkat" {
 subnet_id = aws_subnet.two.id
 ami = "ami-03d294e37a4820c21"
 instance_type = "t2.micro"
@@ -607,14 +607,14 @@ region = "us-east-1"
 
 
 resource "aws_iam_user" "one" {
-name = "rahamshaik"
+name = "venkat"
 }
 
 resource "aws_ebs_volume" "two" {
 size = 22
 availability_zone = "us-east-1a"
 tags = {
-Name = "raham-volume"
+Name = "venkat-volume"
 }
 }
 
@@ -811,12 +811,12 @@ module "my_instance_module" {
         source = "./modules/instances"
         ami = "ami-04823729c75214919"
         instance_type = "t2.micro"
-        instance_name = " rahaminstance"
+        instance_name = " venkatinstance"
 }
 
 module "s3_module" {
 source = "./modules/buckets"
-bucket_name = "devopsherahamshaik009988"
+bucket_name = "DevOpsvenkat123454"
 }
 
 [root@ip-172-31-87-7 terraform]# cat provider.tf
